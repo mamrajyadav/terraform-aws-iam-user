@@ -11,7 +11,8 @@ module "iam-user" {
 
   policy_enabled = true
   policy         = data.aws_iam_policy_document.default.json
-  pgp_key        = ""
+  enable_console = true
+  pgp_key        = "keybase:nikitadugar"
 }
 
 data "aws_iam_policy_document" "default" {

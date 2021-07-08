@@ -10,12 +10,18 @@ output "unique_id" {
 
 output "key_id" {
   value       = module.iam-user.*.key_id
-  description = "The ARN assigned by AWS for this user."
+  description = "The access key ID."
 }
 
 output "secret" {
   value       = module.iam-user.*.secret
-  description = "The ARN assigned by AWS for this user."
+  description = "The secret access key. Note that this will be written to the state file. Please supply a pgp_key instead, which will prevent the secret from being stored in plain text."
+  sensitive   = true
+}
+
+output "password" {
+  value       = module.iam-user.*.password
+  description = "The encrypted password, base64 encoded. Only available if password was handled on Terraform resource creation, not import."
   sensitive   = true
 }
 

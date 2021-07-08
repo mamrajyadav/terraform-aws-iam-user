@@ -21,6 +21,11 @@ output "secret" {
   sensitive   = true
 }
 
+output "password" {
+  value       = join("", aws_iam_user_login_profile.default.*.encrypted_password)
+  description = "The encrypted password, base64 encoded. Only available if password was handled on Terraform resource creation, not import."
+}
+
 output "tags" {
   value       = module.labels.tags
   description = "A mapping of tags to assign to the resource."

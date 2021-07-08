@@ -54,3 +54,9 @@ resource "aws_iam_user_policy_attachment" "default" {
   user       = aws_iam_user.default.*.name[0]
   policy_arn = var.policy_arn
 }
+
+resource "aws_iam_user_login_profile" "default" {
+  count   = var.enabled && var.enable_console != "" ? 1 : 0
+  user    = aws_iam_user.default.*.name[0]
+  pgp_key = var.pgp_key
+}

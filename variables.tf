@@ -56,6 +56,12 @@ variable "enabled" {
   description = "Whether to create Iam user."
 }
 
+variable "enable_console" {
+  type        = bool
+  default     = true
+  description = "Whether to create Iam user console password."
+}
+
 variable "force_destroy" {
   type        = bool
   default     = false
