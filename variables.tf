@@ -105,3 +105,26 @@ variable "policy_arn" {
   description = "The ARN of the policy you want to apply."
   sensitive   = true
 }
+
+variable "membership_enabled" {
+  type = bool
+  default = false
+  description = "IAM user group membership can be imported using the user name and group names separated by"
+}
+
+variable "ssh_key_enabled" {
+  type = bool
+  default = false
+  description = "Uploads an SSH public key and associates it with the specified IAM user."
+}
+
+variable "public_key" {
+  type = string
+  default = false
+  description = "The SSH public key. The public key must be encoded in ssh-rsa format or PEM format."
+}
+
+variable "encoding" {
+  type = string
+  default = "ssh"
+}
